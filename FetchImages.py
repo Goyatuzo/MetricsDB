@@ -14,7 +14,7 @@ query = ("SELECT activity_name, image_0, image_1 FROM test.Records")
 cursor.execute(query)
 
 # If it doesn't exist, create a folder to store the images.
-dirname = "./Images/"
+dirname = "./Thumbnails/"
 if not os.path.isdir(dirname):
 	os.mkdir(dirname)
 
@@ -43,7 +43,7 @@ for image in cursor:
 	t.start()
 	threads.append(t)
 	# Wait one second or else too many files will be open.
-	time.sleep(0.5)
+	time.sleep(0.1)
 
 map(lambda t: t.join(), threads)
 
